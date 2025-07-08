@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffe6ec, #ffffff);
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .slide-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .slide {
+      display: none;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      animation: fade 0.8s ease;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      color: #d63384;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .photo, .flower-img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin: 20px 0;
+    }
+
+    video {
+      width: 90%;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      margin: 20px auto;
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .controls button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #d63384;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background-color: #b8005d;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="slide-container">
+  <div class="slide active">
+    <div class="card">
+      <img src="clicks (1).png" alt="Foto kamu" class="photo" />
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="card">
+      <h1>Selamat Ulang Tahun Celin Aletta Sisilya 💖</h1>
+      <p><i class="fas fa-sun"></i> Seseorang yang paling kutunggu untuk menyapa setiap hariku 🌸</p>
+      <img src="IMG-20250529-WA0017.jpg" alt="Foto kamu" class="photo" />
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="card">
+      <p>Aku tahu, mungkin aku belum bisa memberimu hadiah secara langsung sekarang. 💕</p>
+      <p>Tapi percayalah, aku selalu berusaha memberikan sesuatu yang tulus dari hati untukmu. 🤍</p>
+      <img src="yang mendukung kamu, yang terus semangatin kamu di setiap langkahmu..png" alt="Foto kamu" class="photo" />
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="card">
+      <video controls>
+        <source src="Celin Birthday Video 1 [4D0DB90].mp4" type="video/mp4">
+      </video>
+      <video controls>
+        <source src="tahap 2 [0A112BE].mp4" type="video/mp4">
+      </video>
+      <p style="font-size: 0.9em; color: #999;">Kalau kamu suka videonya, nanti aku kirim buat kamu 🎶</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="card">
+      <p><i class="fas fa-gift"></i> Untukmu, bunga yang kumaksud kemarin — maaf belum bisa kasih langsung 🌺</p>
+      <img src="bunga1-removebg-preview.png" alt="Bunga" class="flower-img" />
+    </div>
+  </div>
+
+  <div class="slide">
+        <div class="card">
+      <p>Semoga hari ini penuh dengan cinta, tawa, dan semua hal yang membuatmu bahagia 💕</p>
+      <p>Aku akan selalu ada untukmu, mendukung dan mencintaimu sepenuh hati 🤍</p>
+    <div class="card closing">
+      Aku mencintaimu, hari ini dan selamanya 💘<br/>
+      - Micuuu
+    </div>
+  </div>
+</div>
+
+<div class="controls">
+  <button onclick="prevSlide()">Micuuu</button>
+  <button onclick="nextSlide()">Klik ini</button>
+</div>
+
+<audio id="bgmusic" loop>
+  <source src="v4.www-y2mate.blog - Nadhif Basalamah - bergema sampai selamanya (Official Lyric Video) (320 KBps).mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  const bgMusic = document.getElementById('bgmusic');
+  bgMusic.volume = 0.1;
+
+  document.body.addEventListener('click', () => {
+    bgMusic.play().catch(() => {});
+  }, { once: true });
+
+  const videos = document.querySelectorAll('video');
+  videos.forEach(video => {
+    video.addEventListener('play', () => {
+      bgMusic.pause();
+    });
+
+    video.addEventListener('pause', () => {
+      const isAnyPlaying = Array.from(videos).some(v => !v.paused);
+      if (!isAnyPlaying) {
+        bgMusic.play();
+      }
+    });
+
+    video.addEventListener('ended', () => {
+      const isAnyPlaying = Array.from(videos).some(v => !v.paused);
+      if (!isAnyPlaying) {
+        bgMusic.play();
+      }
+    });
+  });
+
+  showSlide(currentSlide);
+</script>
+</body>
+</html>
